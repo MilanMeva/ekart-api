@@ -2,6 +2,7 @@ let router = require('express').Router({mergeParams:true});
 let Cart = require('../schema/cart')
 
 
+
 router.get("/:cartid",(req,res,next)=>{
     let id = req.params.cartid;
     Cart.find({_id:id}).then(data=>{res.send(data)}).catch(next)

@@ -13,7 +13,7 @@ let ProductSchema = new Schema({
     deliveryCharges:Number,
     seller:String,
     img:String,
-    review:{type:[ReviewSchema]}
+    review:[{type:ReviewSchema,ref:"Review"}]
 })
 
 
