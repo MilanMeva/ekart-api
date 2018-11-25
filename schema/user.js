@@ -7,8 +7,8 @@ let UserSchema = new Schema({
     email: { type: String, required: true },
     password: { type: String, required: true },
     addresses: [{type: ObjectId, ref: 'Address'} ],
-    cards: { type: [ObjectId] },
-    cart: { type: ObjectId }
+    cards: [{type: ObjectId, ref: 'Card'}],
+    cart: { type: ObjectId , ref:"Cart" }
 })
 
 UserSchema.statics.findUserById = function (id){

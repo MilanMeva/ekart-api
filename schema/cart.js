@@ -10,6 +10,12 @@ let CartSchema = new Schema({
     cartTotal:Number
 })
 
+
+CartSchema.statics.updateCart = (cart,cb)=>{
+    return this.findOneAndUpdate({_id:cart.id},cart,{upsert:true,new:true}).exec();
+}
+
+
 let Cart = mongoose.model('Cart',CartSchema);
 
 module.exports = {

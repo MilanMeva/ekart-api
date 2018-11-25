@@ -7,6 +7,12 @@ let CardSchema = new Schema({
    cardNumber:String
 })
 
+
+CardSchema.statics.updateCard = (card)=>{
+    return this.findOneAndUpdate({_id:card.id},cart,{upsert:true,new:true}).exec();
+}
+
+
 let Card = mongoose.model('Card', CardSchema);
 
 module.exports = {
